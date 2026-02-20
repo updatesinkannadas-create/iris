@@ -1,0 +1,25 @@
+.chat-button {
+    position: fixed;
+    bottom: 75px;
+    right: calc(50% - 200px);
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background-color: var(--chat-btn);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(88, 86, 214, 0.35);
+    z-index: 999;
+    transition: transform 0.2s ease;
+}
+
+.chat-button:active {
+    transform: scale(0.92);
+}
+
+@media (max-width: 480px) {
+    .chat-button {
+        right: 16px;
+    }
+}

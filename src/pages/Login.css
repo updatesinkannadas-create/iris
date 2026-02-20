@@ -1,0 +1,143 @@
+.login-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-bg-gradient {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(88, 86, 214, 0.3), transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(118, 75, 162, 0.3), transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(102, 126, 234, 0.2), transparent 40%);
+    animation: bgFloat 15s ease-in-out infinite;
+}
+
+@keyframes bgFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(-2%, 3%) rotate(1deg);
+    }
+
+    66% {
+        transform: translate(2%, -2%) rotate(-1deg);
+    }
+}
+
+.login-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    width: 100%;
+    max-width: 380px;
+}
+
+.login-logo-container {
+    text-align: center;
+}
+
+.login-iris-logo {
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: 16px;
+    color: #ffffff;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-iris-logo span:nth-child(2) {
+    font-size: 4.5rem;
+}
+
+.login-subtitle {
+    font-size: 1.17rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.login-tagline {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 4px;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 32px 24px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.login-description {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.google-sign-in-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 20px;
+    background: #ffffff;
+    color: #333333;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.google-sign-in-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.google-sign-in-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.login-footer {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+}

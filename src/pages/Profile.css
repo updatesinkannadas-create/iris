@@ -1,0 +1,126 @@
+.profile-page {
+    padding: 0 20px 20px;
+}
+
+/* Header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    margin-bottom: 6px;
+}
+
+.back-btn {
+    color: var(--text-primary);
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-page-title {
+    font-size: 1.17rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Profile Info Card */
+.profile-info-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 18px;
+    gap: 14px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    box-shadow: var(--card-shadow);
+}
+
+.profile-avatar-large {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--accent-primary);
+}
+
+.profile-placeholder.profile-avatar-large {
+    font-size: 2.2rem;
+}
+
+.profile-info-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.profile-name-large {
+    font-size: 1.17rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+
+.profile-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+}
+
+/* Tabs */
+.profile-tabs {
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    font-size: 1.08rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+    color: var(--text-primary);
+    border-bottom-color: var(--accent-primary);
+}
+
+/* Data Card */
+.profile-data-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    box-shadow: var(--card-shadow);
+}
+
+.data-row {
+    margin-bottom: 18px;
+}
+
+.data-row:last-child {
+    margin-bottom: 0;
+}
+
+.data-label {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-bottom: 3px;
+}
+
+.data-value {
+    display: block;
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}

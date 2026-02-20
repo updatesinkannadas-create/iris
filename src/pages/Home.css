@@ -1,0 +1,394 @@
+.home-page {
+    padding: 0 20px 20px;
+}
+
+/* Header */
+.iris-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    margin-bottom: 0;
+}
+
+.iris-logo {
+    font-size: 2.2rem;
+    font-weight: 300;
+    letter-spacing: 10px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: baseline;
+}
+
+/* Make the 'r' visually bigger to match I and S height */
+.iris-logo span:nth-child(2) {
+    font-size: 2.5rem;
+}
+
+.notification-btn {
+    position: relative;
+    padding: 4px;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #ff3b30;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 6px;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+/* Profile Card */
+.profile-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 14px 16px;
+    gap: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: var(--card-shadow);
+}
+
+.profile-card:active {
+    background-color: var(--bg-card-alt);
+}
+
+.profile-avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--accent-primary);
+}
+
+.profile-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-primary);
+    color: white;
+    font-weight: 600;
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.profile-placeholder-fullscreen {
+    width: 250px;
+    height: 250px;
+    font-size: 8rem;
+    border-radius: 50%;
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.profile-name {
+    font-size: 1.17rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.profile-detail {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.profile-arrow {
+    flex-shrink: 0;
+}
+
+/* Dashboard */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.dashboard-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 10px 12px;
+    transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: var(--card-shadow);
+}
+
+.credits-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 6px;
+}
+
+.credits-label {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.transfer-icon {
+    margin-left: auto;
+}
+
+.credits-values {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.credit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.credit-number {
+    font-size: 1.42rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.credit-label {
+    font-size: 0.83rem;
+    color: var(--text-secondary);
+    margin-top: 1px;
+}
+
+.hostel-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hostel-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.hostel-text-sub {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.2;
+}
+
+/* Courses */
+.courses-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.course-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 14px 14px;
+    position: relative;
+    overflow: hidden;
+    min-height: 90px;
+    transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: var(--card-shadow);
+}
+
+.course-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.course-code {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.moodle-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.course-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.course-status {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+}
+
+.course-dropped {
+    position: relative;
+}
+
+.dropped-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 28px 28px 0;
+    border-color: transparent #ff3b30 transparent transparent;
+}
+
+/* Favorites */
+.favorites-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.favorite-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    min-width: 130px;
+    min-height: 80px;
+    position: relative;
+    transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: var(--card-shadow);
+}
+
+.favorite-card svg {
+    align-self: flex-end;
+}
+
+.favorite-label {
+    font-size: 0.83rem;
+    color: var(--text-primary);
+    margin-top: auto;
+}
+
+.edit-favorites-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+/* Announcements */
+.announcement-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 14px;
+    transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: var(--card-shadow);
+}
+
+.announcement-tag {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 4px;
+    display: block;
+}
+
+.announcement-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin-bottom: 4px;
+}
+
+.announcement-date {
+    font-size: 0.83rem;
+    color: var(--text-secondary);
+}
+
+/* Full-screen image viewer overlay */
+.image-viewer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    animation: fadeInOverlay 0.3s ease;
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.image-viewer-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    color: #ffffff;
+}
+
+.image-viewer-back {
+    color: var(--accent-primary);
+    padding: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.image-viewer-title {
+    font-size: 1.08rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.image-viewer-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+}
+
+.image-viewer-body img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
