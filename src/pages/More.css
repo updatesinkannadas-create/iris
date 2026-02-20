@@ -1,5 +1,5 @@
 .more-page {
-    padding: 0 20px 20px;
+    padding: 0 16px 20px;
 }
 
 .more-page .iris-header {
@@ -49,11 +49,11 @@
 
 .more-card {
     background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
-    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* Softer shadow */
 }
 
 /* Theme Switcher */
@@ -88,18 +88,20 @@
 .more-divider {
     height: 1px;
     background-color: var(--border-subtle);
-    margin: 0 14px;
+    margin: 0 16px;
 }
 
 /* Items */
 .more-item {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     width: 100%;
-    padding: 12px 14px;
+    padding: 16px;
     text-align: left;
     transition: background-color 0.15s;
+    border: none;
+    background: transparent;
 }
 
 .more-item:active {

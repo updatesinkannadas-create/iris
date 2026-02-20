@@ -12,7 +12,7 @@ export default defineConfig({
         name: 'IRIS NITK',
         short_name: 'IRIS',
         description: 'Information Resource and Integration Server for NITK',
-        theme_color: '#5856d6',
+        theme_color: '#000000',
         background_color: '#f8f9fa',
         display: 'standalone',
         icons: [
