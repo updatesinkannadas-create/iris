@@ -52,7 +52,11 @@
 .theme-switcher {
     display: flex;
     padding: 6px;
-    gap: 4px;
+    gap: 0;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: 50px;
+    margin: 10px 12px;
+    background: transparent;
 }
 
 .theme-option {
@@ -61,19 +65,18 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    padding: 7px;
+    padding: 8px;
     font-size: 0.92rem;
     font-weight: 500;
     color: var(--text-secondary);
-    border-radius: 8px;
+    border-radius: 50px;
     transition: all 0.2s ease;
-    border: 1px solid transparent;
+    border: none;
 }
 
 .theme-option.active {
-    background-color: var(--bg-card-dark);
-    color: var(--text-primary);
-    border-color: var(--border-subtle);
+    background-color: var(--bg-card-alt);
+    color: var(--accent-primary);
 }
 
 /* Divider */
