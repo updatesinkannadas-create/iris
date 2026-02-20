@@ -234,6 +234,8 @@
     scroll-snap-align: start;
     transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
     box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
 }
 
 .course-header {
@@ -266,6 +268,7 @@
 .course-status {
     font-size: 0.83rem;
     color: var(--text-muted);
+    margin-top: auto;
 }
 
 .course-dropped {
