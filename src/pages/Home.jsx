@@ -153,7 +153,13 @@ function Home() {
                             <div className="course-header">
                                 <span className="course-code">{course.code}</span>
                                 {course.status !== 'dropped' && (
-                                    <img src="/png-transparent-moodle-computer-icons-learning-management-system-content-management-system-others-miscellaneous-angle-text-thumbnail.png" alt="Moodle" className="moodle-icon" />
+                                    <svg className="moodle-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="50" cy="53" r="47" fill="#f98012" />
+                                        <text x="50%" y="65%" fontSize="55" fontWeight="bold" fontFamily="Arial, Helvetica, sans-serif" fill="#ffffff" textAnchor="middle" dominantBaseline="middle">m</text>
+                                        <path d="M50 8L15 22l35 14 35-14L50 8z" fill="#4b3d2b" />
+                                        <rect x="47" y="21" width="6" height="10" fill="#4b3d2b" />
+                                        <path d="M83 22v22l3-3v-19z" fill="#4b3d2b" />
+                                    </svg>
                                 )}
                             </div>
                             <p className="course-name">{course.name}</p>

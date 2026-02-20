@@ -1,13 +1,13 @@
 .categories-page {
-    padding: 0 20px 20px;
+    padding: 0 14px 20px;
 }
 
 .cat-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 20px;
-    margin: 0 -20px 12px -20px;
+    padding: 16px 14px;
+    margin: 0 -14px 12px -14px;
     position: sticky;
     top: 0;
     z-index: 100;
