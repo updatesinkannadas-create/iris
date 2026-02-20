@@ -283,12 +283,9 @@ function Categories() {
         <div className="categories-page">
             {/* Header */}
             <header className="cat-header">
-                <h1 className="cat-logo">
-                    <span>I</span>
-                    <span>r</span>
-                    <span>I</span>
-                    <span>S</span>
-                </h1>
+                <div className="cat-logo">
+                    <img src="/iris-logo.png" alt="IRIS" />
+                </div>
             </header>
 
             {/* Search */}

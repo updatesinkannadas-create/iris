@@ -46,12 +46,9 @@ function Home() {
 
             {/* Header */}
             <header className="iris-header">
-                <h1 className="iris-logo">
-                    <span>I</span>
-                    <span>r</span>
-                    <span>I</span>
-                    <span>S</span>
-                </h1>
+                <div className="iris-logo">
+                    <img src="/iris-logo.png" alt="IRIS" />
+                </div>
                 <button className="notification-btn" aria-label="Notifications">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" strokeWidth="1.8">
                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />

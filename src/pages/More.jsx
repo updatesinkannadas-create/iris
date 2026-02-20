@@ -108,12 +108,9 @@ function More() {
         <div className="more-page">
             {/* Header */}
             <header className="iris-header">
-                <h1 className="iris-logo">
-                    <span>I</span>
-                    <span>r</span>
-                    <span>I</span>
-                    <span>S</span>
-                </h1>
+                <div className="iris-logo">
+                    <img src="/iris-logo.png" alt="IRIS" />
+                </div>
             </header>
 
             {/* Version */}
