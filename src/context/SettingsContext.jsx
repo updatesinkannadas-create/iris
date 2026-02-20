@@ -85,10 +85,10 @@ function applyTheme(root, mode) {
         root.style.setProperty('--text-primary', '#ffffff')
         root.style.setProperty('--text-secondary', '#8e8e93')
         root.style.setProperty('--text-muted', '#636366')
-        root.style.setProperty('--border-color', '#38383a')
-        root.style.setProperty('--border-subtle', '#38383a')
+        root.style.setProperty('--border-color', 'transparent')
+        root.style.setProperty('--border-subtle', '#2c2c2e')
         root.style.setProperty('--nav-bg', '#000000')
-        root.style.setProperty('--card-shadow', '0 2px 6px rgba(0,0,0,0.4)')
+        root.style.setProperty('--card-shadow', '0 2px 6px rgba(255,255,255,0.04)')
         document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#000000')
     }
 }
