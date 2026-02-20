@@ -7,8 +7,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 0;
-    margin-bottom: 0;
+    padding: 16px 0;
+    margin-bottom: 24px;
 }
 
 .iris-logo {
@@ -42,14 +42,14 @@
 
 /* Sections */
 .section {
-    margin-bottom: 6px;
+    margin-bottom: 20px;
 }
 
 .section-title {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 12px;
 }
 
 /* Profile Card */
@@ -58,9 +58,9 @@
     align-items: center;
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 14px 16px;
-    gap: 14px;
+    border-radius: 16px;
+    padding: 18px 20px;
+    gap: 16px;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
     box-shadow: var(--card-shadow);
@@ -71,8 +71,8 @@
 }
 
 .profile-avatar {
-    width: 68px;
-    height: 68px;
+    width: 76px;
+    height: 76px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
@@ -129,8 +129,9 @@
 .dashboard-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 12px 10px;
+    border-radius: 16px;
+    padding: 18px 14px;
+    min-height: 105px;
     transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
     box-shadow: var(--card-shadow);
 }
@@ -219,11 +220,11 @@
 .course-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 12px 14px 14px;
+    border-radius: 16px;
+    padding: 18px 20px 20px;
     position: relative;
     overflow: hidden;
-    min-height: 90px;
+    min-height: 120px;
     flex: 0 0 65%;
     /* Horizontal swiping sizing */
     scroll-snap-align: start;
@@ -296,14 +297,14 @@
 .favorite-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 14px;
+    border-radius: 16px;
+    padding: 18px 20px;
     display: flex;
     flex-direction: column;
     min-width: 0;
     flex: 0 0 60%;
     scroll-snap-align: start;
-    min-height: 85px;
+    min-height: 105px;
     position: relative;
     transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
     box-shadow: var(--card-shadow);
@@ -323,15 +324,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
+    flex-shrink: 0;
+    width: 48px;
+    height: 105px;
+    border-radius: 16px;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 /* Announcements */
 .announcement-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 12px 14px;
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin-bottom: 24px;
     transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
     box-shadow: var(--card-shadow);
 }

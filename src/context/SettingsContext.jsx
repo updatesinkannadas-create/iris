@@ -15,6 +15,10 @@ export function SettingsProvider({ children }) {
         return parseInt(localStorage.getItem('iris-font-size') || '12', 10)
     })
 
+    const [screenFitScale, setScreenFitScale] = useState(() => {
+        return parseFloat(localStorage.getItem('iris-screen-fit') || '1.0')
+    })
+
     // Apply theme
     useEffect(() => {
         localStorage.setItem('iris-theme', theme)
@@ -39,8 +43,14 @@ export function SettingsProvider({ children }) {
         document.documentElement.style.fontSize = `${fontSize}px`
     }, [fontSize])
 
+    // Apply screen fit scale
+    useEffect(() => {
+        localStorage.setItem('iris-screen-fit', screenFitScale.toString())
+        document.documentElement.style.zoom = screenFitScale
+    }, [screenFitScale])
+
     return (
-        <SettingsContext.Provider value={{ theme, setTheme, fontSize, setFontSize }}>
+        <SettingsContext.Provider value={{ theme, setTheme, fontSize, setFontSize, screenFitScale, setScreenFitScale }}>
             {children}
         </SettingsContext.Provider>
     )

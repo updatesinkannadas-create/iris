@@ -7,7 +7,7 @@ import './More.css'
 function More() {
     const navigate = useNavigate()
     const { logout } = useAuth()
-    const { theme, setTheme, fontSize, setFontSize } = useSettings()
+    const { theme, setTheme, fontSize, setFontSize, screenFitScale, setScreenFitScale } = useSettings()
     const [showHidden, setShowHidden] = useState(false)
 
     const fontSizeLabels = {
@@ -255,6 +255,48 @@ function More() {
                                 ))}
                             </div>
                         </div>
+
+                        <div className="more-divider"></div>
+
+                        {/* Screen Fit Control */}
+                        <div className="hidden-setting-item">
+                            <div className="hidden-setting-header">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" strokeWidth="1.5">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <polyline points="9 21 3 21 3 15" />
+                                    <line x1="21" y1="3" x2="14" y2="10" />
+                                    <line x1="3" y1="21" x2="10" y2="14" />
+                                </svg>
+                                <span className="hidden-setting-label">Screen Fit</span>
+                                <span className="hidden-setting-value">{(screenFitScale * 100).toFixed(0)}%</span>
+                            </div>
+                            <div className="font-size-control">
+                                <span className="font-size-preview" style={{ fontSize: '0.8rem' }}>XS</span>
+                                <input
+                                    type="range"
+                                    className="font-size-slider"
+                                    min="0.8"
+                                    max="1.5"
+                                    step="0.05"
+                                    value={screenFitScale}
+                                    onChange={(e) => setScreenFitScale(parseFloat(e.target.value))}
+                                />
+                                <span className="font-size-preview" style={{ fontSize: '1.2rem' }}>XL</span>
+                            </div>
+                            <div className="font-size-ticks">
+                                {[0.8, 1.0, 1.25, 1.5].map(scale => (
+                                    <button
+                                        key={scale}
+                                        className={`font-tick ${screenFitScale === scale ? 'active' : ''}`}
+                                        onClick={() => setScreenFitScale(scale)}
+                                    >
+                                        {(scale * 100).toFixed(0)}%
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
                     </div>
                 )}
             </section>
