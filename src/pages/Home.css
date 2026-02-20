@@ -253,6 +253,12 @@
     width: 22px;
     height: 22px;
     object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+[data-theme="dark"] .moodle-icon {
+    filter: brightness(0) invert(1);
+    mix-blend-mode: normal;
 }
 
 .course-name {
