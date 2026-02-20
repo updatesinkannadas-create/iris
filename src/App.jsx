@@ -7,6 +7,7 @@ import More from './pages/More'
 import Login from './pages/Login'
 import Onboarding from './pages/Onboarding'
 import EditProfile from './pages/EditProfile'
+import FavoritesSelect from './pages/FavoritesSelect'
 import BottomNav from './components/BottomNav'
 import ChatButton from './components/ChatButton'
 import './App.css'
@@ -37,15 +38,18 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/more" element={<More />} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/favorites-select" element={<FavoritesSelect />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
       <Routes>
         <Route path="/edit-profile" element={null} />
+        <Route path="/favorites-select" element={null} />
         <Route path="*" element={<ChatButton />} />
       </Routes>
       <Routes>
         <Route path="/edit-profile" element={null} />
+        <Route path="/favorites-select" element={null} />
         <Route path="*" element={<BottomNav />} />
       </Routes>
     </div>

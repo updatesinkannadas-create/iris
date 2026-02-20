@@ -1,0 +1,80 @@
+.favorites-select-page {
+    padding: 0 14px 20px;
+}
+
+.fav-select-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 14px;
+    margin: 0 -14px 12px -14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--bg-primary);
+}
+
+.fav-select-title {
+    font-size: 1.17rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.fav-select-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.fav-select-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 4px;
+    border-bottom: 1px solid var(--border-subtle);
+    background: transparent;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.15s;
+}
+
+.fav-select-item:active {
+    background-color: var(--bg-card-alt);
+}
+
+.fav-select-item:last-child {
+    border-bottom: none;
+}
+
+.fav-select-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fav-select-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.fav-select-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.fav-select-category {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+}
+
+.fav-heart {
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.fav-heart.active {
+    transform: scale(1.1);
+}

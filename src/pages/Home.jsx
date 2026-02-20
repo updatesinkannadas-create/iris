@@ -8,10 +8,14 @@ function Home() {
     const { userData } = useAuth()
     const [showImageViewer, setShowImageViewer] = useState(false)
 
+    // Read favorites from localStorage
+    const favorites = JSON.parse(localStorage.getItem('iris-favorites') || '["Course Registration"]')
+
     // Fallbacks if data isn't fully loaded
     const fullName = userData?.fullName || 'Student'
     const profilePic = userData?.profilePhotoURL || null
-    const degreeInfo = [userData?.degree, userData?.year, userData?.semester]
+    const semesterText = userData?.semester ? `${userData.semester} Semester` : null
+    const degreeInfo = [userData?.degree, userData?.year, semesterText]
         .filter(Boolean).join(', ') || 'No degree info'
     const branchInfo = userData?.branch || 'No branch info'
     const majorCredits = userData?.majorCredits || 0
@@ -173,17 +177,17 @@ function Home() {
                     </svg>
                 </h2>
                 <div className="favorites-row">
-                    <div className="favorite-card">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                            <rect x="5" y="2" width="14" height="20" rx="2" />
-                            <line x1="9" y1="6" x2="15" y2="6" />
-                            <path d="M15 10l-6 6" />
-                            <path d="M9 16l0 0" />
-                            <path d="M13 10l2 2" />
-                        </svg>
-                        <span className="favorite-label">Course Registration</span>
-                    </div>
-                    <button className="edit-favorites-btn">
+                    {favorites.map((fav, index) => (
+                        <div key={index} className="favorite-card">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" />
+                                <line x1="9" y1="6" x2="15" y2="6" />
+                                <path d="M9 11l2 2 4-4" />
+                            </svg>
+                            <span className="favorite-label">{fav}</span>
+                        </div>
+                    ))}
+                    <button className="edit-favorites-btn" onClick={() => navigate('/favorites-select')}>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
                             <line x1="15" y1="5" x2="19" y2="9" />
