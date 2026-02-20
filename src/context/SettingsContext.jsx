@@ -46,7 +46,10 @@ export function SettingsProvider({ children }) {
     // Apply screen fit scale
     useEffect(() => {
         localStorage.setItem('iris-screen-fit', screenFitScale.toString())
-        document.documentElement.style.zoom = screenFitScale
+
+        // Use CSS root variable instead of manual DOM node queries
+        document.documentElement.style.zoom = 1 // reset
+        document.documentElement.style.setProperty('--screen-fit', screenFitScale.toString())
     }, [screenFitScale])
 
     return (

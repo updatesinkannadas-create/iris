@@ -1,12 +1,24 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useSwipeable } from 'react-swipeable'
 import './Profile.css'
 
 function Profile() {
     const navigate = useNavigate()
     const { userData } = useAuth()
     const [activeTab, setActiveTab] = useState('personal')
+
+    const handlers = useSwipeable({
+        onSwipedLeft: () => {
+            if (activeTab === 'personal') setActiveTab('academics')
+        },
+        onSwipedRight: () => {
+            if (activeTab === 'academics') setActiveTab('personal')
+        },
+        preventScrollOnSwipe: true,
+        trackMouse: true
+    })
 
     // Fallbacks
     const fullName = userData?.fullName || 'Student'
@@ -84,13 +96,15 @@ function Profile() {
             </div>
 
             {/* Data Card */}
-            <div className="profile-data-card">
-                {currentData.map((item, index) => (
-                    <div key={index} className="data-row">
-                        <span className="data-label">{item.label}</span>
-                        <span className="data-value">{item.value}</span>
-                    </div>
-                ))}
+            <div className="profile-swipe-container" {...handlers} style={{ minHeight: '50vh' }}>
+                <div className="profile-data-card">
+                    {currentData.map((item, index) => (
+                        <div key={index} className="data-row">
+                            <span className="data-label">{item.label}</span>
+                            <span className="data-value">{item.value}</span>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

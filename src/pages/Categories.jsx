@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSwipeable } from 'react-swipeable'
 import './Categories.css'
 
 const categoryTabs = [
@@ -254,6 +255,25 @@ function Categories() {
     const [activeCategory, setActiveCategory] = useState('academics')
     const [searchTerm, setSearchTerm] = useState('')
 
+    const categoryOrder = ['institute', 'academics', 'campus']
+
+    const handlers = useSwipeable({
+        onSwipedLeft: () => {
+            const currentIndex = categoryOrder.indexOf(activeCategory)
+            if (currentIndex < categoryOrder.length - 1) {
+                setActiveCategory(categoryOrder[currentIndex + 1])
+            }
+        },
+        onSwipedRight: () => {
+            const currentIndex = categoryOrder.indexOf(activeCategory)
+            if (currentIndex > 0) {
+                setActiveCategory(categoryOrder[currentIndex - 1])
+            }
+        },
+        preventScrollOnSwipe: true,
+        trackMouse: true
+    })
+
     const modules = modulesByCategory[activeCategory] || []
     const filteredModules = modules.filter(m =>
         m.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -301,15 +321,17 @@ function Categories() {
             </div>
 
             {/* Modules Grid */}
-            <div className="modules-grid">
-                {filteredModules.map((module, index) => (
-                    <div key={index} className="module-card">
-                        <div className="module-icon-wrapper">
-                            {iconMap[module.icon]}
+            <div className="modules-swipe-container" {...handlers} style={{ minHeight: '60vh' }}>
+                <div className="modules-grid">
+                    {filteredModules.map((module, index) => (
+                        <div key={index} className="module-card">
+                            <div className="module-icon-wrapper">
+                                {iconMap[module.icon]}
+                            </div>
+                            <span className="module-name">{module.name}</span>
                         </div>
-                        <span className="module-name">{module.name}</span>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     )
