@@ -138,8 +138,17 @@ function Home() {
                         <div className="hostel-header">
                             <span className="hostel-label">Hostel</span>
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" strokeWidth="1.5">
-                                <path d="M3 21V9l9-7 9 7v12" />
-                                <rect x="9" y="13" width="6" height="8" />
+                                <rect x="2" y="6" width="10" height="16" rx="1" />
+                                <rect x="12" y="2" width="10" height="20" rx="1" />
+                                <line x1="5" y1="9" x2="9" y2="9" />
+                                <line x1="5" y1="12" x2="9" y2="12" />
+                                <line x1="5" y1="15" x2="9" y2="15" />
+                                <line x1="5" y1="18" x2="9" y2="18" />
+                                <line x1="15" y1="5" x2="19" y2="5" />
+                                <line x1="15" y1="8" x2="19" y2="8" />
+                                <line x1="15" y1="11" x2="19" y2="11" />
+                                <line x1="15" y1="14" x2="19" y2="14" />
+                                <line x1="15" y1="17" x2="19" y2="17" />
                             </svg>
                         </div>
                         {isHostel ? (

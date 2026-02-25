@@ -241,6 +241,10 @@ function Onboarding() {
                             </div>
                         </div>
                         <div className="form-group">
+                            <label className="form-label">Gender</label>
+                            <CustomSelect value={gender} onChange={setGender} options={['Male', 'Female', 'Other']} placeholder="Select Gender" />
+                        </div>
+                        <div className="form-group">
                             <label className="form-label">Accommodation</label>
                             <CustomSelect
                                 value={hostelStatus}

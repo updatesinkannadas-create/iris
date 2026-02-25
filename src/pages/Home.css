@@ -195,6 +195,7 @@
     align-items: center;
     gap: 6px;
     margin-bottom: 8px;
+    align-self: flex-start;
 }
 
 .hostel-label {
