@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSettings } from '../context/SettingsContext'
 import { useAuth } from '../context/AuthContext'
+import { doc, deleteDoc } from 'firebase/firestore'
+import { db } from '../firebase'
 import './More.css'
 
 function More() {
     const navigate = useNavigate()
-    const { logout } = useAuth()
+    const { user, logout } = useAuth()
     const { theme, setTheme, fontSize, setFontSize, screenFitScale, setScreenFitScale } = useSettings()
     const [showHidden, setShowHidden] = useState(false)
 
@@ -61,6 +63,32 @@ function More() {
             ),
             label: 'Log out',
             action: logout,
+        },
+        {
+            icon: (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff3b30" strokeWidth="1.5">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                    <line x1="10" y1="11" x2="10" y2="17" />
+                    <line x1="14" y1="11" x2="14" y2="17" />
+                </svg>
+            ),
+            label: 'Delete All Data',
+            labelStyle: { color: '#ff3b30' },
+            action: async () => {
+                if (window.confirm('Are you sure? This will delete ALL your data and you will need to set up your profile again.')) {
+                    try {
+                        if (user) {
+                            await deleteDoc(doc(db, 'users', user.uid))
+                        }
+                        localStorage.clear()
+                        logout()
+                    } catch (err) {
+                        console.error('Error deleting data:', err)
+                        alert('Failed to delete data. Please try again.')
+                    }
+                }
+            },
         },
     ]
 
@@ -170,7 +198,7 @@ function More() {
                         <div key={index}>
                             <button className="more-item" onClick={item.action}>
                                 <span className="more-item-icon">{item.icon}</span>
-                                <span className="more-item-label">{item.label}</span>
+                                <span className="more-item-label" style={item.labelStyle}>{item.label}</span>
                             </button>
                             {index < settingsItems.length - 1 && <div className="more-divider"></div>}
                         </div>
