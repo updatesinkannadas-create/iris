@@ -21,6 +21,18 @@ const DEGREES = ['B.Tech', 'M.Tech', 'PhD']
 const YEARS = ['1st Year', '2nd Year', '3rd Year', '4th Year']
 const SEMESTERS = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th']
 
+const BOYS_HOSTELS = [
+    'Karavali (Block I)', 'Aravali (Block II)', 'Vindhya (Block III)',
+    'Satpura (Block IV)', 'Nilgiri (Block V)', 'Pushpagiri (PG Block)',
+    'Brahmagiri (PG New)', 'Sahyadri (Block VII)', 'Trishul (Block VIII)',
+    'Everest (MT-I)', 'Himalaya (MT-II)', 'Kailash (MT-III)', 'Shivalik (Block XI)',
+]
+
+const GIRLS_HOSTELS = [
+    'Ganga (GH-I)', 'Kaveri (GH-II)', 'Yamuna (GH-III)',
+    'Sharavathi (GH-IV)', 'Netravathi (GH-V)', 'Godavari (GH-VI)',
+]
+
 function EditProfile() {
     const navigate = useNavigate()
     const { userData, updateUserData, uploadProfilePhoto, removeProfilePhoto } = useAuth()
@@ -39,6 +51,8 @@ function EditProfile() {
     const [majorCredits, setMajorCredits] = useState('')
     const [minorCredits, setMinorCredits] = useState('')
     const [hostelStatus, setHostelStatus] = useState('day_scholar')
+    const [hostelName, setHostelName] = useState('')
+    const [roomNumber, setRoomNumber] = useState('')
 
     // Courses
     const [courses, setCourses] = useState([{ name: '', code: '', status: 'taken' }])
@@ -76,6 +90,8 @@ function EditProfile() {
             setMajorCredits(userData.majorCredits?.toString() || '')
             setMinorCredits(userData.minorCredits?.toString() || '')
             setHostelStatus(userData.hostelStatus || 'day_scholar')
+            setHostelName(userData.hostelName || '')
+            setRoomNumber(userData.roomNumber || '')
             setCourses(userData.courses?.length ? userData.courses : [{ name: '', code: '', status: 'taken' }])
             setFatherName(userData.personal?.fatherName || '')
             setDob(userData.personal?.dob || '')
@@ -144,6 +160,8 @@ function EditProfile() {
                 majorCredits: parseInt(majorCredits) || 0,
                 minorCredits: parseInt(minorCredits) || 0,
                 hostelStatus,
+                hostelName: hostelStatus === 'hostel' ? hostelName : '',
+                roomNumber: hostelStatus === 'hostel' ? roomNumber : '',
                 courses: courses.filter(c => c.name && c.code),
                 personal: {
                     fatherName, dob, gender, bloodGroup,
@@ -255,7 +273,13 @@ function EditProfile() {
                             <label>Accommodation</label>
                             <CustomSelect
                                 value={hostelStatus}
-                                onChange={setHostelStatus}
+                                onChange={(val) => {
+                                    setHostelStatus(val)
+                                    if (val !== 'hostel') {
+                                        setHostelName('')
+                                        setRoomNumber('')
+                                    }
+                                }}
                                 options={[
                                     { value: 'day_scholar', label: 'Day Scholar' },
                                     { value: 'hostel', label: 'Hostel' }
@@ -263,6 +287,23 @@ function EditProfile() {
                                 placeholder="Select Status"
                             />
                         </div>
+                        {hostelStatus === 'hostel' && (
+                            <>
+                                <div className="edit-field">
+                                    <label>Hostel Block</label>
+                                    <CustomSelect
+                                        value={hostelName}
+                                        onChange={setHostelName}
+                                        options={gender === 'Female' ? GIRLS_HOSTELS : BOYS_HOSTELS}
+                                        placeholder="Select Hostel"
+                                    />
+                                </div>
+                                <div className="edit-field">
+                                    <label>Room Number</label>
+                                    <input type="text" value={roomNumber} onChange={e => setRoomNumber(e.target.value)} placeholder="e.g. 524" />
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
 

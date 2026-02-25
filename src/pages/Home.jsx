@@ -21,6 +21,8 @@ function Home() {
     const majorCredits = userData?.majorCredits || 0
     const minorCredits = userData?.minorCredits || 0
     const isHostel = userData?.hostelStatus === 'hostel'
+    const hostelName = userData?.hostelName || ''
+    const roomNumber = userData?.roomNumber || ''
     const courses = userData?.courses || []
 
     return (
@@ -133,9 +135,21 @@ function Home() {
                         </div>
                     </div>
                     <div className="dashboard-card hostel-card">
-                        <p className="hostel-text">{isHostel ? 'Hostel Allotted' : 'Day Scholar'}</p>
-                        {!isHostel && (
+                        <div className="hostel-header">
+                            <span className="hostel-label">Hostel</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" strokeWidth="1.5">
+                                <path d="M3 21V9l9-7 9 7v12" />
+                                <rect x="9" y="13" width="6" height="8" />
+                            </svg>
+                        </div>
+                        {isHostel ? (
                             <>
+                                <p className="hostel-name">{hostelName || 'Hostel Allotted'}</p>
+                                {roomNumber && <p className="hostel-room">Room Number {roomNumber}</p>}
+                            </>
+                        ) : (
+                            <>
+                                <p className="hostel-text">Day Scholar</p>
                                 <p className="hostel-text-sub">or</p>
                                 <p className="hostel-text">Hostel not allotted</p>
                             </>

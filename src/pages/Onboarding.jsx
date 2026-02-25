@@ -20,6 +20,31 @@ const DEGREES = ['B.Tech', 'M.Tech', 'PhD']
 const YEARS = ['1st Year', '2nd Year', '3rd Year', '4th Year']
 const SEMESTERS = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th']
 
+const BOYS_HOSTELS = [
+    'Karavali (Block I)',
+    'Aravali (Block II)',
+    'Vindhya (Block III)',
+    'Satpura (Block IV)',
+    'Nilgiri (Block V)',
+    'Pushpagiri (PG Block)',
+    'Brahmagiri (PG New)',
+    'Sahyadri (Block VII)',
+    'Trishul (Block VIII)',
+    'Everest (MT-I)',
+    'Himalaya (MT-II)',
+    'Kailash (MT-III)',
+    'Shivalik (Block XI)',
+]
+
+const GIRLS_HOSTELS = [
+    'Ganga (GH-I)',
+    'Kaveri (GH-II)',
+    'Yamuna (GH-III)',
+    'Sharavathi (GH-IV)',
+    'Netravathi (GH-V)',
+    'Godavari (GH-VI)',
+]
+
 function Onboarding() {
     const { user, saveUserData, uploadProfilePhoto } = useAuth()
     const [step, setStep] = useState(1)
@@ -39,6 +64,8 @@ function Onboarding() {
     const [majorCredits, setMajorCredits] = useState('')
     const [minorCredits, setMinorCredits] = useState('')
     const [hostelStatus, setHostelStatus] = useState('day_scholar')
+    const [hostelName, setHostelName] = useState('')
+    const [roomNumber, setRoomNumber] = useState('')
 
     // Step 3: Courses
     const [courses, setCourses] = useState([{ name: '', code: '', status: 'taken' }])
@@ -112,6 +139,8 @@ function Onboarding() {
                 majorCredits: parseInt(majorCredits) || 0,
                 minorCredits: parseInt(minorCredits) || 0,
                 hostelStatus,
+                hostelName: hostelStatus === 'hostel' ? hostelName : '',
+                roomNumber: hostelStatus === 'hostel' ? roomNumber : '',
                 courses: courses.filter(c => c.name && c.code),
                 personal: {
                     fatherName,
@@ -215,7 +244,11 @@ function Onboarding() {
                             <label className="form-label">Accommodation</label>
                             <CustomSelect
                                 value={hostelStatus}
-                                onChange={setHostelStatus}
+                                onChange={(val) => {
+                                    setHostelStatus(val)
+                                    setHostelName('')
+                                    setRoomNumber('')
+                                }}
                                 options={[
                                     { value: 'day_scholar', label: 'Day Scholar' },
                                     { value: 'hostel', label: 'Hostel' }
@@ -223,6 +256,24 @@ function Onboarding() {
                                 placeholder="Select Status"
                             />
                         </div>
+                        {hostelStatus === 'hostel' && (
+                            <>
+                                <div className="form-group">
+                                    <label className="form-label">Hostel Block</label>
+                                    <CustomSelect
+                                        value={hostelName}
+                                        onChange={setHostelName}
+                                        options={gender === 'Female' ? GIRLS_HOSTELS : BOYS_HOSTELS}
+                                        placeholder="Select Hostel"
+                                    />
+                                    {!gender && <p className="form-hint">💡 Set your gender in Step 4 to see gender-specific hostels</p>}
+                                </div>
+                                <div className="form-group">
+                                    <label className="form-label">Room Number</label>
+                                    <input type="text" className="form-input" value={roomNumber} onChange={e => setRoomNumber(e.target.value)} placeholder="e.g. 524" />
+                                </div>
+                            </>
+                        )}
                     </div>
                 )}
 
